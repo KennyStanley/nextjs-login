@@ -9,7 +9,6 @@ const Login = () => {
 
     function handleSubmit(e: FormEvent) {
         e.preventDefault()
-        //call api
         fetch('/api/auth', {
             method: 'POST',
             headers: {

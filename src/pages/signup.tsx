@@ -6,7 +6,6 @@ const Signup = () => {
     const [signupError, setSignupError] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [passwordConfirmation, setPasswordConfirmation] = useState('')
 
     function handleSubmit(e: FormEvent) {
         e.preventDefault()

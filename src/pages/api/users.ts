@@ -3,6 +3,7 @@ import assert from 'assert'
 import bcrypt from 'bcrypt'
 import { v4 as uuidV4 } from 'uuid'
 import jwt from 'jsonwebtoken'
+import { NextApiRequest, NextApiResponse } from 'next'
 const jwtSecret = process.env.JWT_SECRET || ''
 const saltRounds = 10
 const dbName = process.env.DB_NAME || ''
@@ -36,7 +37,7 @@ function createUser(db: { collection: (arg0: string) => any }, email: any, passw
     });
 }
 
-export default (req: { method: string; body: { email: any; password: any } }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { error?: boolean; message?: any; token?: string }): void; new(): any } } }) => {
+export default (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === 'POST') {
         // signup
         try {
